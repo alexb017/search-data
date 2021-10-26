@@ -34,16 +34,19 @@ const data = [
   },
 ];
 
-// render function with default parameter
+// render function
 const render = (word = '') => {
-  const wordLowerCase = word.toLowerCase();
+  const wordToLowerCase = word.toLowerCase();
+
+  // returns the word if is included in the list
   const filterWord = data.filter((item) => {
-    return item.cityName.toLowerCase().includes(wordLowerCase);
+    return item.cityName.toLowerCase().includes(wordToLowerCase);
   });
 
   // overwrite the previous values
   results.innerHTML = '';
 
+  // insert the word into the DOM
   filterWord.forEach((item) => {
     results.insertAdjacentHTML('beforeend', `<li>${item.cityName}</li>`);
   });
